@@ -22,7 +22,6 @@ app.get("/api/data", async (req, res) => {
     res.json(data);
   } catch (error) {
     console.error("Error fetching data: " + error);
-   res.status(500).json({ error: "Internal Server Error" });
   }
 });
 
