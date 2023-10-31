@@ -4,6 +4,8 @@ const app = express();
 const mongoose = require("mongoose");
 mongoose.connect("mongodb://localhost:27017/yavda");
 
+app.set("view engine","ejs");
+app.use(express.static('./public'));
 
 const visualSchema = new mongoose.Schema({
   src: String,
@@ -23,14 +25,6 @@ app.get("/api/data", async (req, res) => {
    res.status(500).json({ error: "Internal Server Error" });
   }
 });
-
-
-
-
-app.set("view engine","ejs");
-
-app.use(express.static('./public'));
-
 
 app.get("/", function (req, res) {
     res.render("index");
